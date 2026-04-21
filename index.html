@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Duduk Perkara Bocah di Cimahi Dikeroyok gegara Salah Paham</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,400&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --ink: #1a1209;
+      --ink-mid: #3d2f1a;
+      --ink-light: #7a6a56;
+      --paper: #f5f0e8;
+      --paper-warm: #ede6d6;
+      --paper-dark: #ddd4c0;
+      --red: #b5001f;
+      --red-dark: #8a0017;
+      --gold: #c9922a;
+      --rule: #c4b89a;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--paper);
+      color: var(--ink);
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: 17px;
+      line-height: 1.75;
+    }
+
+    /* ── TOP BAR ── */
+    .topbar {
+      background: var(--ink);
+      color: #d4c9b0;
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 11px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 7px 32px;
+    }
+    .topbar a { color: #d4c9b0; text-decoration: none; }
+    .topbar .nav-links { display: flex; gap: 18px; }
+
+    /* ── MASTHEAD ── */
+    .masthead {
+      background: var(--paper-warm);
+      border-bottom: 3px double var(--ink);
+      text-align: center;
+      padding: 28px 16px 18px;
+    }
+    .masthead-kicker {
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 10px;
+      letter-spacing: .25em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 8px;
+    }
+    .masthead h1 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(36px, 6vw, 62px);
+      font-weight: 900;
+      letter-spacing: -.02em;
+      color: var(--ink);
+      line-height: 1.05;
+    }
+    .masthead-tagline {
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 11px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      margin-top: 8px;
+    }
+    .masthead-date {
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 11.5px;
+      color: var(--ink-light);
+      margin-top: 12px;
+      border-top: 1px solid var(--rule);
+      padding-top: 10px;
+    }
+
+    /* ── SECTION NAV ── */
+    .section-nav {
+      background: var(--ink);
+      display: flex;
+      justify-content: center;
+      gap: 0;
+      overflow-x: auto;
+    }
+    .section-nav a {
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 11px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: #c8bfa8;
+      text-decoration: none;
+      padding: 9px 18px;
+      border-right: 1px solid #3a3020;
+      white-space: nowrap;
+      transition: background .2s, color .2s;
+    }
+    .section-nav a:hover, .section-nav a.active {
+      background: var(--red);
+      color: #fff;
+    }
+
+    /* ── LAYOUT ── */
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* ── HERO ARTICLE ── */
+    .hero {
+      padding: 44px 0 28px;
+      border-bottom: 2px solid var(--ink);
+    }
+    .category-tag {
+      display: inline-block;
+      background: var(--red);
+      color: #fff;
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      margin-bottom: 16px;
+    }
+    .hero-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(26px, 4.5vw, 44px);
+      font-weight: 700;
+      line-height: 1.18;
+      color: var(--ink);
+      margin-bottom: 16px;
+    }
+    .hero-deck {
+      font-size: 18px;
+      font-weight: 300;
+      color: var(--ink-mid);
+      line-height: 1.55;
+      font-style: italic;
+      margin-bottom: 22px;
+      padding-left: 16px;
+      border-left: 3px solid var(--gold);
+    }
+    .meta-line {
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 11.5px;
+      color: var(--ink-light);
+      letter-spacing: .05em;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      align-items: center;
+      margin-bottom: 28px;
+    }
+    .meta-line .author { color: var(--ink-mid); font-weight: 600; }
+    .meta-line .divider { color: var(--rule); }
+
+    /* ── FEATURE IMAGE ── */
+    .feature-image {
+      width: 100%;
+      background: linear-gradient(145deg, #2a1f10 0%, #4a3820 40%, #1a1209 100%);
+      border: 2px solid var(--ink);
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 10px;
+      aspect-ratio: 16/7;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .feature-image svg { width: 100%; height: 100%; position: absolute; top: 0; left: 0; }
+    .img-caption {
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 11px;
+      color: var(--ink-light);
+      font-style: italic;
+      margin-bottom: 30px;
+      padding-left: 4px;
+      border-left: 2px solid var(--rule);
+    }
+
+    /* ── ARTICLE BODY ── */
+    .article-body {
+      columns: 1;
+    }
+    .article-body p {
+      margin-bottom: 1.25em;
+      text-align: justify;
+      hyphens: auto;
+    }
+    .article-body p:first-child::first-letter {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 72px;
+      font-weight: 900;
+      float: left;
+      line-height: .85;
+      margin: 4px 10px 0 0;
+      color: var(--red);
+    }
+
+    /* ── PULL QUOTE ── */
+    .pull-quote {
+      margin: 32px 0;
+      padding: 22px 28px;
+      background: var(--paper-dark);
+      border-top: 3px solid var(--ink);
+      border-bottom: 3px solid var(--ink);
+      position: relative;
+    }
+    .pull-quote::before {
+      content: '\201C';
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 80px;
+      color: var(--gold);
+      position: absolute;
+      top: -12px;
+      left: 16px;
+      line-height: 1;
+    }
+    .pull-quote p {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 21px;
+      font-weight: 700;
+      font-style: italic;
+      color: var(--ink);
+      line-height: 1.45;
+      padding-top: 16px;
+      margin-bottom: 0 !important;
+      text-align: left !important;
+    }
+    .pull-quote p::first-letter { all: unset; }
+
+    /* ── INFOBOX ── */
+    .infobox {
+      background: var(--paper-warm);
+      border: 1.5px solid var(--rule);
+      border-left: 5px solid var(--red);
+      padding: 20px 24px;
+      margin: 28px 0;
+    }
+    .infobox h3 {
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .15em;
+      font-weight: 600;
+      color: var(--red);
+      margin-bottom: 12px;
+    }
+    .infobox ul { list-style: none; padding: 0; }
+    .infobox li {
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 14px;
+      color: var(--ink-mid);
+      padding: 5px 0;
+      border-bottom: 1px dotted var(--rule);
+      display: flex;
+      gap: 10px;
+    }
+    .infobox li:last-child { border-bottom: none; }
+    .infobox li .label { font-weight: 600; min-width: 130px; color: var(--ink); }
+
+    /* ── RULE DIVIDER ── */
+    .rule-divider {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 32px 0;
+      color: var(--rule);
+    }
+    .rule-divider::before, .rule-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--rule);
+    }
+    .rule-divider span {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 18px;
+      color: var(--gold);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--ink);
+      color: #8a7d68;
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 12px;
+      text-align: center;
+      padding: 28px 16px;
+      margin-top: 52px;
+      border-top: 4px double var(--gold);
+    }
+    footer .footer-logo {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 22px;
+      font-weight: 900;
+      color: var(--paper);
+      letter-spacing: .04em;
+      margin-bottom: 8px;
+    }
+
+    /* ── BREAKING TAG ── */
+    .breaking-banner {
+      background: var(--red);
+      color: #fff;
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      text-align: center;
+      padding: 8px;
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { background: var(--red); }
+      50% { background: var(--red-dark); }
+    }
+
+    /* ── ANIMATION ── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(18px);
+      animation: fadeUp .7s ease forwards;
+    }
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .delay-1 { animation-delay: .15s; }
+    .delay-2 { animation-delay: .3s; }
+    .delay-3 { animation-delay: .45s; }
+    .delay-4 { animation-delay: .6s; }
+
+    @media (max-width: 600px) {
+      .topbar .nav-links { display: none; }
+      .article-body p:first-child::first-letter { font-size: 54px; }
+      .pull-quote p { font-size: 17px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- BREAKING BANNER -->
+<div class="breaking-banner">⚡ Berita Hukum & Kriminal — Jawa Barat</div>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div>Selasa, 15 Mei 2022</div>
+  <div class="nav-links">
+    <a href="#">Nasional</a>
+    <a href="#">Jabar</a>
+    <a href="#">Hukum</a>
+    <a href="#">Politik</a>
+    <a href="#">Olahraga</a>
+  </div>
+  <div>Cimahi, Jawa Barat</div>
+</div>
+
+<!-- MASTHEAD -->
+<div class="masthead">
+  <div class="masthead-kicker">Portal Berita Daerah</div>
+  <h1>KABAR JABAR</h1>
+  <div class="masthead-tagline">Berita Terpercaya dari Jantung Jawa Barat</div>
+  <div class="masthead-date">Edisi Senin, 17 Mei 2022 &nbsp;|&nbsp; Hukum & Kriminal &nbsp;|&nbsp; Cimahi</div>
+</div>
+
+<!-- SECTION NAV -->
+<nav class="section-nav">
+  <a href="#">Utama</a>
+  <a href="#" class="active">Hukum</a>
+  <a href="#">Kriminal</a>
+  <a href="#">Pemerintahan</a>
+  <a href="#">Pendidikan</a>
+  <a href="#">Olahraga</a>
+  <a href="#">Sosial</a>
+</nav>
+
+<!-- MAIN CONTENT -->
+<main class="container">
+  <article class="hero fade-in">
+
+    <span class="category-tag">Hukum &amp; Kriminal</span>
+
+    <h2 class="hero-title">
+      Duduk Perkara Bocah di Cimahi Dikeroyok gegara Salah Paham
+    </h2>
+
+    <p class="hero-deck fade-in delay-1">
+      Insiden pengeroyokan yang melibatkan pelajar SMP di Kota Cimahi viral di media sosial. Tiga pelaku kini telah diamankan polisi — semuanya masih berusia 14 tahun, dan pemicunya hanyalah sebuah komentar di status WhatsApp.
+    </p>
+
+    <div class="meta-line fade-in delay-2">
+      <span class="author">Tim Redaksi Kabar Jabar</span>
+      <span class="divider">|</span>
+      <span>17 Mei 2022, 14:30 WIB</span>
+      <span class="divider">|</span>
+      <span>📍 Cimahi, Jawa Barat</span>
+      <span class="divider">|</span>
+      <span>⏱ 4 menit baca</span>
+    </div>
+
+    <!-- FEATURE IMAGE -->
+    <div class="feature-image fade-in delay-2">
+      <svg viewBox="0 0 860 380" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+        <defs>
+          <radialGradient id="bg" cx="50%" cy="50%" r="70%">
+            <stop offset="0%" stop-color="#3d2a10"/>
+            <stop offset="100%" stop-color="#0e0a04"/>
+          </radialGradient>
+          <filter id="grain">
+            <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/>
+            <feColorMatrix type="saturate" values="0"/>
+            <feBlend in="SourceGraphic" mode="multiply"/>
+          </filter>
+        </defs>
+        <rect width="860" height="380" fill="url(#bg)"/>
+        <!-- Street scene abstract -->
+        <rect x="0" y="260" width="860" height="120" fill="#1a1005" opacity=".9"/>
+        <!-- Buildings silhouettes -->
+        <rect x="30" y="120" width="80" height="150" fill="#221508" opacity=".8"/>
+        <rect x="50" y="100" width="40" height="170" fill="#1a1005" opacity=".9"/>
+        <rect x="160" y="140" width="60" height="130" fill="#221508" opacity=".7"/>
+        <rect x="240" y="90" width="100" height="180" fill="#1a1005" opacity=".85"/>
+        <rect x="580" y="110" width="90" height="160" fill="#221508" opacity=".8"/>
+        <rect x="700" y="130" width="70" height="140" fill="#1a1005" opacity=".9"/>
+        <rect x="780" y="100" width="60" height="170" fill="#221508" opacity=".75"/>
+        <!-- Street light glow -->
+        <circle cx="430" cy="90" r="80" fill="#c9922a" opacity=".08"/>
+        <circle cx="430" cy="90" r="40" fill="#e8a830" opacity=".1"/>
+        <line x1="430" y1="80" x2="430" y2="260" stroke="#c9922a" stroke-width="2" opacity=".3"/>
+        <!-- Police tape abstract lines -->
+        <line x1="0" y1="290" x2="860" y2="290" stroke="#b5001f" stroke-width="3" opacity=".6" stroke-dasharray="30,15"/>
+        <!-- Text overlay -->
+        <text x="430" y="195" text-anchor="middle" font-family="Georgia,serif" font-size="13" fill="#c9922a" letter-spacing="3" opacity=".85">KOTA CIMAHI — JAWA BARAT</text>
+        <text x="430" y="228" text-anchor="middle" font-family="Georgia,serif" font-size="22" font-weight="bold" fill="#f0e8d0" opacity=".9">Jl. Kebon Jeruk, Cibeureum, Cimahi Selatan</text>
+        <text x="430" y="255" text-anchor="middle" font-family="Georgia,serif" font-size="12" fill="#a89070" opacity=".8">Minggu, 15 Mei 2022 — TKP Pengeroyokan</text>
+        <!-- Grain overlay -->
+        <rect width="860" height="380" filter="url(#grain)" opacity=".18"/>
+      </svg>
+    </div>
+    <p class="img-caption">Ilustrasi: Lokasi kejadian pengeroyokan di Jalan Kebon Jeruk, Kelurahan Cibeureum, Kecamatan Cimahi Selatan, Kota Cimahi. | Grafis: Redaksi</p>
+
+    <!-- ARTICLE BODY -->
+    <div class="article-body fade-in delay-3">
+
+      <p>
+        <strong>CIMAHI, Kabar Jabar</strong> — Sebuah video berdurasi 17 detik yang memperlihatkan aksi pengeroyokan terhadap seorang remaja viral di media sosial pada Minggu (15/5/2022). Dalam rekaman itu, seorang remaja berbaju hitam terlihat dipukul dan ditendang secara brutal oleh beberapa orang, sementara sejumlah anak-anak menyaksikan dari sekitar. Peristiwa tersebut terjadi di Jalan Kebon Jeruk, RT 01/12, Kelurahan Cibeureum, Kecamatan Cimahi Selatan, Kota Cimahi, Jawa Barat.
+      </p>
+
+      <p>
+        Berkat kecepatan gerak Satuan Reserse Kriminal (Satreskrim) Polres Cimahi, tiga pelaku berhasil diamankan dalam waktu kurang dari 24 jam setelah video tersebut beredar luas. Ketiganya adalah remaja yang masih duduk di bangku SMP dan berinisial MAS (14 tahun), FA (14 tahun), dan MIZ (14 tahun).
+      </p>
+
+      <div class="pull-quote">
+        <p>"Ada 3 anak yang melakukan penganiayaan terhadap anak lainnya. Kurang dari 1x24 jam, Satreskrim Polres Cimahi mengamankan 3 pelaku."</p>
+      </div>
+
+      <p>
+        Kapolres Cimahi AKBP Imron Ermawan dalam konferensi pers di Mapolres Cimahi, Selasa (17/5/2022), menegaskan bahwa ketiga pelaku telah resmi ditetapkan sebagai tersangka. Uniknya, dari video viral tersebut hanya terlihat satu korban, namun setelah penyelidikan lebih mendalam, diketahui bahwa korban pengeroyokan sebenarnya berjumlah tiga orang.
+      </p>
+
+      <!-- INFOBOX -->
+      <div class="infobox">
+        <h3>📋 Ringkasan Kasus</h3>
+        <ul>
+          <li><span class="label">Waktu Kejadian</span> Minggu, 15 Mei 2022</li>
+          <li><span class="label">Lokasi</span> Jl. Kebon Jeruk, Cibeureum, Cimahi Selatan</li>
+          <li><span class="label">Jumlah Korban</span> 3 orang (MRN, YA, MR) — usia 14–16 tahun</li>
+          <li><span class="label">Jumlah Pelaku</span> 3 orang (MAS, FA, MIZ) — usia 14 tahun</li>
+          <li><span class="label">Pemicu</span> Komentar di status WhatsApp</li>
+          <li><span class="label">Penangkapan</span> Senin, 16 Mei 2022 (dalam 24 jam)</li>
+          <li><span class="label">Pasal yang Disangkakan</span> Pasal 80 Ayat 2 UU No. 35/2014 Perlindungan Anak Jo. Pasal 170 Ayat 2 KUHP</li>
+          <li><span class="label">Ancaman Hukuman</span> Minimal 5 tahun penjara</li>
+        </ul>
+      </div>
+
+      <h3 style="font-family:'Playfair Display',serif;font-size:22px;font-weight:700;margin:28px 0 12px;color:var(--ink);">Bermula dari Komentar Status WhatsApp</h3>
+
+      <p>
+        Kasatreskrim Polres Cimahi, AKP Rizka Fadila, mengungkapkan duduk perkara sesungguhnya dalam gelar perkara di Mapolres Cimahi. Insiden bermula ketika korban berinisial MRN (14) menggunakan ponsel milik temannya, YA (14), untuk mengomentari status WhatsApp seorang perempuan berinisial K. Status tersebut berbunyi <em>"Main Mulu Kayak Yang Ada Uang"</em> — sebuah komentar yang tampaknya tidak dimaksudkan sebagai penghinaan, melainkan sekadar candaan biasa di kalangan remaja.
+      </p>
+
+      <p>
+        Nahas, perempuan K ternyata adalah pacar dari pelaku utama, MAS (14). Setelah mendapat laporan dari pacarnya, MAS langsung meminta nomor ponsel YA dari K, lalu mengajak dua temannya, FA dan MIZ, untuk menghadang para korban. Kesalahpahaman kecil di dunia maya itu pun berujung pada kekerasan nyata di jalanan Cimahi.
+      </p>
+
+      <div class="rule-divider"><span>✦</span></div>
+
+      <h3 style="font-family:'Playfair Display',serif;font-size:22px;font-weight:700;margin:28px 0 12px;color:var(--ink);">Tiga Korban, Bukan Satu</h3>
+
+      <p>
+        Salah satu fakta mengejutkan yang terungkap dalam penyelidikan polisi adalah bahwa korban pengeroyokan bukan hanya satu orang seperti yang terlihat dalam video viral. Selain MRN yang menjadi sasaran utama pukulan dan tendangan, dua rekannya yakni YA (14) dan MR (16) juga menjadi korban penganiayaan, namun adegan penyerangan terhadap keduanya tidak terekam kamera.
+      </p>
+
+      <p>
+        "Selain korban MRN, YA dan MR juga terkena hantam pelaku, tapi memang tidak terekam di video yang viral," jelas Kasatreskrim AKP Rizka Fadila kepada wartawan.
+      </p>
+
+      <div class="rule-divider"><span>✦</span></div>
+
+      <h3 style="font-family:'Playfair Display',serif;font-size:22px;font-weight:700;margin:28px 0 12px;color:var(--ink);">Keluarga Korban Bersikukuh Lanjutkan Kasus</h3>
+
+      <p>
+        Kapolres Cimahi AKBP Imron Ermawan mengungkapkan bahwa pihaknya telah berupaya mempertemukan keluarga pelaku dan korban untuk mencari jalan damai. Namun upaya mediasi tersebut tidak membuahkan hasil — pihak keluarga korban bersikukuh agar kasus pengeroyokan ini tetap dilanjutkan ke ranah hukum hingga tuntas.
+      </p>
+
+      <p>
+        "Nanti proses tetap dilanjut karena orangtua korban tetap agar kasus ini tetap dilanjutkan sampai tuntas," tutur Imron. Polisi pun berkoordinasi dengan Balai Pemasyarakatan (Bapas) dan Dinas Sosial Kota Cimahi karena seluruh pihak yang terlibat — baik pelaku maupun korban — masih berstatus anak di bawah umur.
+      </p>
+
+      <p>
+        Ketiga pelaku kini disangkakan dengan Pasal 80 Ayat 2 Undang-undang Nomor 35 Tahun 2014 tentang Perlindungan Anak juncto Pasal 170 Ayat 2 KUHP, dengan ancaman hukuman minimal lima tahun penjara.
+      </p>
+
+      <div class="rule-divider"><span>✦</span></div>
+
+      <p style="font-style:italic;color:var(--ink-light);font-size:15px;">
+        Kasus ini menjadi pengingat betapa dunia digital yang tampak sepele — sebaris komentar di status WhatsApp — dapat berujung pada konsekuensi hukum yang nyata dan berat bagi kalangan remaja. Penegak hukum berharap kejadian ini menjadi pelajaran bagi masyarakat, khususnya anak-anak dan orang tua, untuk lebih bijak dalam berkomunikasi di media sosial.
+      </p>
+
+    </div>
+    <!-- /article-body -->
+
+  </article>
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">KABAR JABAR</div>
+  <p>Portal Berita Terpercaya Jawa Barat &nbsp;|&nbsp; Redaksi: redaksi@kabarjabar.id</p>
+  <p style="margin-top:8px;font-size:11px;opacity:.6;">© 2022 Kabar Jabar. Hak cipta dilindungi undang-undang. Dilarang memperbanyak tanpa izin.</p>
+</footer>
+
+</body>
+</html>
